@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Styleguide</title>
+</head>
+
+<body class="styleguide">
+	<div id="app">
+		<%= require('html-loader!../components/header.html') %>
+
+		<!-- <%= require('html-loader!../styleguide/panel.html') %> -->
+		<%= require('html-loader!../styleguide/colors.html') %>
+		<%= require('html-loader!../styleguide/type.html') %>
+		<%= require('html-loader!../styleguide/form.html') %>
+
+		<%= require('html-loader!../components/footer.html') %>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</body>
+
+</html>

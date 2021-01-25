@@ -1,0 +1,34 @@
+// Global Button Styles
+button {
+	cursor: pointer;
+}
+
+#{$all-buttons} {
+	&:focus {
+		outline: $focus-outline;
+		outline-offset: $focus-outline-offset;
+	}
+}
+
+// Theme Buttons
+.block {
+	.buttons .btn {
+		@include btn-base();
+	}
+	.buttons {
+		position: relative;
+		padding-top: 1rem;
+		padding-bottom: 5px;
+		z-index: 1;
+
+		margin-left: -1rem;
+		margin-right: -1rem;
+		.btn {
+			margin-left: 1rem;
+			margin-right: 1rem;
+		}
+	}
+	p + .buttons {
+		padding-top: 0; // Top padding for buttons under paragraphs
+	}
+}
