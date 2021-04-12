@@ -1,33 +1,17 @@
 <section class="block cards grid style-1">
 	<div class="wrapper">
 		<div class="row">
-			<div class="col">
-				<div class="title-wrapper">
-					<h1 class="title h3">Layouts and diagrams.</h1>
+			<div v-for="index in 3" :key="'cards'+ index" class="card">
+				<div class="image">
+					<img src="https://source.unsplash.com/random" alt="Place Holder">
 				</div>
-				<ul class="items">
-					<div v-for="index in 3" :key="'cards'+ index">
-						<li class="item" key={i}>
-							<div class="image" style="background-image: url('https://source.unsplash.com/random');">
-								<img src="https://source.unsplash.com/random" alt="Placeholder image" />
-							</div>
-							<div class="content">
-								<h2 class="title">
-									Lorem ipsum dolor
-								</h2>
-								<p>
-									Lorem ipsum dolor sit amet,
-									consectetur adipiscing elit.
-								</p>
-								<div class="buttons">
-									<a href="#" class="btn">
-										Button
-									</a>
-								</div>
-							</div>
-						</li>
+				<div class="content">
+					<h2 class="title">Lorem ipsum dolor</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, dolorum?</p>
+					<div class="buttons">
+						<a href="#" class="btn">Button</a>
 					</div>
-				</ul>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -1,16 +1,16 @@
-### Hi there 👋
+# Blocks - Framework
+If you’re new to the block concept — check out the link below.
+[Getting Started - Blocks](https://prolificdigital.gitbook.io/blocks/)
 
-<!--
-**millertchris/millertchris** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+## 💾 Installation
+First — install all dependencies.
+`npm install`
 
-Here are some ideas to get you started:
+Then — start developing!
+`npm run dev`
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🤔 Next Steps
+Start by updating the `variables.scss` file found in src/scss/globals/ and make your way through all of the other global files. This will give you a baseline to start when beginning a new project.
+
+## ⚡ Tips
+It’s ok to override any of the pre-defined variables. In some cases where variables use other variables to define their properties — it’s ok to override it by changing it to a fixed value.

@@ -1,2 +1,8 @@
 .block.accordions {
+    summary {
+        cursor: pointer;
+    }
+    .item {
+        padding: 10px 0;
+    }
 }

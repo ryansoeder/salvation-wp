@@ -9,12 +9,17 @@
 
 <body class="styleguide">
 	<div id="app">
-		<%= require('html-loader!../components/header.html') %>
-
-		<!-- <%= require('html-loader!../styleguide/panel.html') %> -->
 		<%= require('html-loader!../styleguide/colors.html') %>
 		<%= require('html-loader!../styleguide/type.html') %>
 		<%= require('html-loader!../styleguide/form.html') %>
+
+		<%= require('html-loader!../components/header.html') %>
+		<%= require('html-loader!../blocks/hero.html') %>
+		<%= require('html-loader!../blocks/cards.html') %>
+		<%= require('html-loader!../blocks/accordions.html') %>
+		<%= require('html-loader!../blocks/basic-content.html') %>
+		<%= require('html-loader!../blocks/video.html') %>
+		<%= require('html-loader!../blocks/listing.html') %>
 
 		<%= require('html-loader!../components/footer.html') %>
 	</div>

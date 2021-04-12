@@ -1,7 +1,3 @@
-#app {
-	padding: 200px 0;
-}
-
 .component.panel {
 	position: fixed;
 	top: 0;
@@ -9,7 +5,8 @@
 	width: 220px;
 	height: 100vh;
 	padding: 20px;
-	background: $light-gray;
+	background: var(--color-4);
+	filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.2));
 	.option {
 		display: flex;
 		align-items: center;
@@ -19,38 +16,63 @@
 	}
 }
 
-.block.colors {
-	ul {
-		display: flex;
-		@include clear-list();
-	}
-	.color {
-		position: relative;
-	}
-	.primary {
-		@include display-value($primary);
-	}
-	.secondary {
-		@include display-value($secondary);
-	}
-	.tertiary {
-		@include display-value($tertiary);
-	}
-	.light-gray {
-		@include display-value($light-gray);
-	}
-	.medium-gray {
-		@include display-value($medium-gray);
-	}
-	.dark-gray {
-		@include display-value($dark-gray);
-	}
+.colors {
+	display: flex;
+	@include clear-list();
+}
+
+html {
+	color: var(--color-text);
+	font-family: sans-serif;
+}
+  
+.colors {
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+  
+.color {
+	border-radius: 2px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+	padding: 0.5rem;
+	transition: box-shadow 0.15s;
+}
+  
+.color:hover {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+  
+.color__swatch {
+	background-color: var(--color);
+	border-radius: 2px 2px 0 0;
+	display: block;
+	height: 7rem;
+}
+  
+.color__details {
+	font-size: 1rem;
+	padding: 0.5rem;
+	text-align: right;
+}
+  
+.color input {
+	border: 0;
+	display: block;
+	font-family: monospace;
+	font-size: inherit;
+	margin: 0;
+	padding: 0.2rem;
+	text-align: right;
+	width: 100%;
 }
 
 .block {
 	.label {
 		font-size: 16px;
-		color: $medium-gray;
 		&.hide {
 			display: none;
 		}

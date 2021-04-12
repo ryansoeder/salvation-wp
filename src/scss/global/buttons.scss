@@ -1,34 +1,55 @@
-// Global Button Styles
-button {
+@mixin btn-style-1() {
+	position: relative;
+	display: inline-block;
+
+	font-family: var(--base-font-family);
+	font-size: var(--base-font-size);
+	font-weight: var(--btn-font-weight);
+	line-height: var(--btn-line-height);
+	text-align: center;
+	text-decoration: none;
+
+	padding-top: var(--btn-padding-top);
+	padding-right: var(--btn-padding-right);
+	padding-bottom: var(--btn-padding-bottom);
+	padding-left: var(--btn-padding-left);
+
+	border-width: var(--btn-border-width);
+	border-style: var(--btn-border-style);
+	border-color: var(--btn-border-color);
+	border-radius: var(--btn-border-radius);
+
+	box-shadow: var(--btn-box-shadow-h-offset) var(--btn-box-shadow-v-offset) var(--btn-box-shadow-blur) var(--btn-box-shadow-spread) var(--btn-box-shadow-color);
+
+	color: var(--btn-text-color);
+	background: var(--btn-background);
+
+	transition: all var(--btn-duration) var(--btn-timing);
+	
+	user-select: none;
+	vertical-align: middle;
+	appearance: none;
 	cursor: pointer;
+	-webkit-font-smoothing: antialiased;
+
+	&:hover {
+		color: var(--btn-text-color-hover);
+		background: var(--btn-background-hover);
+	}
+	&:focus {
+		outline: var(--focus-outline);
+		outline-offset: var(--focus-outline-offset);
+	}
 }
 
 #{$all-buttons} {
-	&:focus {
-		outline: $focus-outline;
-		outline-offset: $focus-outline-offset;
-	}
+	@include btn-style-1();
 }
 
-// Theme Buttons
-.block {
-	.buttons .btn {
-		@include btn-base();
-	}
-	.buttons {
-		position: relative;
-		padding-top: 1rem;
-		padding-bottom: 5px;
-		z-index: 1;
+.buttons {
+	position: relative;
+}
 
-		margin-left: -1rem;
-		margin-right: -1rem;
-		.btn {
-			margin-left: 1rem;
-			margin-right: 1rem;
-		}
-	}
-	p + .buttons {
-		padding-top: 0; // Top padding for buttons under paragraphs
-	}
+p + .btn {
+	padding-top: 0;
 }

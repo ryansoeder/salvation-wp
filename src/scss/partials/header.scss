@@ -13,17 +13,18 @@
 }
 
 header {
-	background: #000;
-	.row {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 20px 0;
-	}
-	ul {
-		@include clear-list();
+	nav {
+		ul {
+			display: flex;
+			justify-content: flex-end;
+			padding: 0;
+			list-style: none;
+		}
+		li {
+			margin-left: 40px;
+		}
 	}
 	a {
-		color: #fff;
+		text-decoration: none;
 	}
 }

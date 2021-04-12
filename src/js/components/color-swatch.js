@@ -1,11 +1,11 @@
-export default function styleguide() {
+export default function colorswatch() {
 	/*
-	Pulled from https://css-tricks.com/how-to-get-all-custom-properties-on-a-page-in-javascript/
-
+	Inspired by: https://css-tricks.com/how-to-get-all-custom-properties-on-a-page-in-javascript/
+	
 	Check if the stylesheet is internal or hosted on the current domain.
 	If it isn't, attempting to access sheet.cssRules will throw a cross origin error.
 	See https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet#Notes
-	
+
 	NOTE: One problem this could raise is hosting stylesheets on a CDN with a
 	different domain. Those would be cross origin, so you can't access them.
 	*/
@@ -43,7 +43,7 @@ export default function styleguide() {
 				rule.style.getPropertyValue(propName).trim()
 				])
 				// Discard any props that don't start with "--". Custom props are required to.
-				.filter(([propName]) => propName.indexOf("--") === 0);
+				.filter(([propName]) => propName.indexOf("--color") === 0);
 
 			return [...propValArr, ...props];
 			}, [])
@@ -52,16 +52,17 @@ export default function styleguide() {
 	);
   
 	const cssCustomPropIndex = getCSSCustomPropIndex();
-	
+  
 	// Add the swatches to the DOM
 	document.querySelector(".colors").innerHTML = cssCustomPropIndex.reduce(
 		(str, [prop, val]) => `${str}<li class="color">
-		<b class="color__swatch" style="--color: ${val}"></b>
-		<div class="color__details">
+			<b class="color__swatch" style="--color: ${val}"></b>
+			<div class="color__details">
 			<input value="${prop}" readonly />
 			<input value="${val}" readonly />
-		</div>
-		</li>`,
+			</div>
+			</li>`,
 		""
 	);
+  
 }

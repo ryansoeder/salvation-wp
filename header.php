@@ -1,10 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 <head>
 <?php if (is_search()) { ?>
     <meta name="robots" content="noindex, nofollow">
 <?php } ?>
+
+<meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <?php wp_head(); ?>
 
 </head>
