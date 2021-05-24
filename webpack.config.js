@@ -2,6 +2,27 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
+const pages = "./src/pages";
+const fs = require("fs");
+const htmlPageNames = [];
+
+fs.readdirSync(pages).forEach((file) => {
+	if (file.includes(".html")) {
+		htmlPageNames.push(file);
+	}
+});
+
+// let htmlPageNames = ["single", "404"];
+let multipleHtmlPlugins = htmlPageNames.map((file) => {
+	return new HtmlWebpackPlugin({
+		template: `src/pages/${file}`, // relative path to the HTML files
+		filename: `${file}`, // output HTML files
+		// minify: true,
+		// chunks: [`${name}`], // respective JS files
+	});
+});
 
 module.exports = {
 	mode: "development",
@@ -36,30 +57,11 @@ module.exports = {
 					"sass-loader",
 				],
 			},
-			// There's a good example that's worth checking out later
-			// in how to include multiple HTML files.
-			// https://www.youtube.com/watch?v=y_RFOaSDL8I
 		],
 	},
 	plugins: [
 		new CleanWebpackPlugin({
 			cleanStaleWebpackAssets: false,
-		}),
-		new HtmlWebpackPlugin({
-			title: "Development",
-			// Load a custom template (lodash by default)
-			filename: "index.html",
-			template: "src/html/pages/index.html",
-		}),
-		new HtmlWebpackPlugin({
-			title: "Single",
-			filename: "single.html",
-			template: "src/html/pages/single.html",
-		}),
-		new HtmlWebpackPlugin({
-			title: "404",
-			filename: "404.html",
-			template: "src/html/pages/404.html",
 		}),
 		new MiniCssExtractPlugin({
 			// Options similar to the same options in webpackOptions.output
@@ -67,5 +69,12 @@ module.exports = {
 			filename: "[name].css",
 			chunkFilename: "[id].css",
 		}),
-	],
+	].concat(multipleHtmlPlugins),
+	optimization: {
+		minimizer: [
+			// For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+			// `...`,
+			new CssMinimizerPlugin(),
+		],
+	},
 };

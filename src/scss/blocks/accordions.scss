@@ -1,8 +1,16 @@
 .block.accordions {
-    summary {
-        cursor: pointer;
-    }
-    .item {
-        padding: 10px 0;
-    }
+	.row {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	summary {
+		padding: 20px;
+		color: #fff;
+		background: #000;
+		cursor: pointer;
+	}
+	.content {
+		padding-top: 20px;
+	}
 }

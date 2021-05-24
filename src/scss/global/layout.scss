@@ -11,7 +11,7 @@
 }
 
 .block {
-	margin-bottom: 100px;
+	margin-bottom: 200px;
 }
 
 .visually-hidden,
@@ -37,4 +37,25 @@
 .align-right,
 .text-align-right {
 	text-align: right;
+}
+
+.block {
+	&.content-left {
+		.row {
+			flex-direction: row;
+		}
+	}
+	&.content-right {
+		.row {
+			flex-direction: row-reverse;
+		}
+	}
+	&.content-left,
+	&.content-right {
+		.row {
+			@media screen and (max-width: 960px) {
+				flex-direction: column;
+			}
+		}
+	}
 }
