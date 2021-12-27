@@ -21,10 +21,10 @@
 }
 
 @mixin image-cover() {
-	width: 100%;
-	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
 	img {
 		display: none;
 	}
@@ -37,23 +37,23 @@
 }
 
 @mixin clear-btn() {
-	position: relative;
-	top: auto;
-	left: auto;
-	right: auto;
-	width: auto;
-	height: auto;
-	padding: 0;
-	font-size: var(--base-font-size);
-	line-height: --base-line-height;
 	background: transparent;
-	border: none;
-	color: var(--color-1);
-	transform: translate(0);
-	text-transform: none;
 	border-radius: 0;
+	border: none;
 	box-shadow: none;
+	color: var(--color-1);
+	font-size: var(--base-font-size);
+	height: auto;
+	left: auto;
+	line-height: --base-line-height;
+	padding: 0;
+	position: relative;
+	right: auto;
 	text-shadow: none;
+	text-transform: none;
+	top: auto;
+	transform: translate(0);
+	width: auto;
 	&:before,
 	&:after {
 		content: none;
@@ -68,39 +68,39 @@
 }
 
 @mixin flex($justify: center, $align: center, $dir: row, $wrap: wrap) {
-	display: flex;
-	justify-content: $justify;
 	align-items: $align;
+	display: flex;
 	flex-wrap: $wrap;
+	justify-content: $justify;
 }
 
 @mixin display-value($var) {
 	&:after {
-		content: "";
-		position: relative;
-		display: block;
-		width: 200px;
-		height: 200px;
 		background-color: $var;
+		content: "";
+		display: block;
+		height: 200px;
+		position: relative;
+		width: 200px;
 	}
 }
 
 @mixin screen($opacity) {
 	&:after {
+		background: #000;
 		content: "";
+		height: 100%;
+		left: 0;
+		opacity: $opacity;
 		position: absolute;
 		top: 0;
-		left: 0;
 		width: 100%;
-		height: 100%;
-		background: #000;
-		opacity: $opacity;
 	}
 }
 
 @mixin image-fit() {
-	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
+	width: 100%;
 }

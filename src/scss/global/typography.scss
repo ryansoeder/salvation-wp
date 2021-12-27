@@ -1,11 +1,11 @@
 html,
 body {
+	-webkit-font-smoothing: antialiased;
+	color: var(--base-font-color);
 	font-family: var(--base-font-family);
+	font-size: var(--base-font-size);
 	font-weight: var(--base-font-weight);
 	line-height: var(--base-line-height);
-	font-size: var(--base-font-size);
-	color: var(--base-font-color);
-	-webkit-font-smoothing: antialiased;
 }
 
 // Come back and revisit
@@ -105,10 +105,10 @@ hr {
 }
 
 blockquote {
-	position: relative;
+	border-left: 1px solid var(--color-1);
 	margin: 80px 40px;
 	padding: 20px;
-	border-left: 1px solid var(--color-1);
+	position: relative;
 	p:last-of-type {
 		margin-bottom: 0;
 	}
