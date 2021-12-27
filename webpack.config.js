@@ -79,10 +79,10 @@ module.exports = {
 		// 	`...`,
 		// 	new CssMinimizerPlugin(),
 		// ],
-		// minimize: true,
-		// minimizer: [
-		// 	new UglifyJsPlugin({include: /\.min\.js$/}),
-		// 	new CssMinimizerPlugin()
-		// ]
+		minimize: true,
+		minimizer: [
+			new UglifyJsPlugin({include: /\.min\.js$/}),
+			new CssMinimizerPlugin()
+		]
 	},
 };
