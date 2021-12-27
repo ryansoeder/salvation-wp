@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const pages = "./src/pages";
 const fs = require("fs");
@@ -26,7 +27,9 @@ let multipleHtmlPlugins = htmlPageNames.map((file) => {
 
 module.exports = {
 	mode: "development",
-	entry: ["./src/js/index.js"],
+	entry: {
+		"main.min": "./src/js/index.js"
+	},
 	output: {
 		filename: "[name].js",
 		path: path.resolve(__dirname, "dist"),
@@ -71,10 +74,15 @@ module.exports = {
 		}),
 	].concat(multipleHtmlPlugins),
 	optimization: {
+		// minimizer: [
+		// 	// For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+		// 	`...`,
+		// 	new CssMinimizerPlugin(),
+		// ],
+		minimize: true,
 		minimizer: [
-			// For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
-			// `...`,
-			new CssMinimizerPlugin(),
-		],
+			new UglifyJsPlugin({include: /\.min\.js$/}),
+			new CssMinimizerPlugin()
+		]
 	},
 };
