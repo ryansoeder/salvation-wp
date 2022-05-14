@@ -8,6 +8,6 @@
 	<title>None of this matters</title>
 </head>
 <body>
-	<h1>Log in, dummy...</h1>
+	<h1>Log in, dummy.</h1>
 </body>
 </html>
