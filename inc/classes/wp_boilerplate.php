@@ -19,8 +19,6 @@
             wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'), '', '2.2.4', true);
             wp_enqueue_script('jquery');
 
-            // wp_enqueue_script('wp-vue', '//cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js', '', '', true);
-            // wp_enqueue_script('wp-vue', '//unpkg.com/vue@next', '', '', true);
             wp_enqueue_script('wp-boilerplate', get_template_directory_uri() . '/dist/main.min.js', '', '', true);        
         }
 
