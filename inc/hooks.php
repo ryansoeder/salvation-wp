@@ -28,3 +28,14 @@
     add_filter('acf/settings/save_json', 'WP_Boilerplate_ACF::json_save_folder');
     add_filter('acf/settings/load_json', 'WP_Boilerplate_ACF::json_load_folder');
     WP_Boilerplate_ACF::add_option_page();
+
+    // return standard ACF REST API format by default
+    add_filter( 'acf/settings/rest_api_format', function () {
+        return 'standard';
+    } );
+
+    //======================================================================
+    // REGISTER CUSTOM API ENDPOINTS
+    //======================================================================
+    add_action( 'rest_api_init', 'register_main_menu');
+    add_action( 'rest_api_init', 'register_site_options');

@@ -48,6 +48,10 @@
             'exclude_from_search'   => false,
             'publicly_queryable'    => true,
             'capability_type'       => 'page',
+            'show_in_graphql'       => true,
+            'graphql_single_name'   => 'Artist',
+            'graphql_plural_name'   => 'Artists',
+            'show_in_rest'          => true
         ];
         register_post_type('artist', $args);
     }

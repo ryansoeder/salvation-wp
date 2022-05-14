@@ -198,3 +198,31 @@
 		// Return a new format
 		return $newDate->format($new_format);
 	};
+
+	//======================================================================
+	// CUSTOM API ENDPOINTS
+	//======================================================================
+
+	// main menu
+	function get_main_menu() {
+        return wp_get_nav_menu_items('Main Menu');
+    }
+	function register_main_menu() {
+        register_rest_route( 'wp/v2', 'main_menu', array(
+            'methods' => 'GET',
+            'callback' => 'get_main_menu',
+        ) );
+    }
+
+	// site options
+	function get_site_options() {
+		$site_options = [];
+		array_push($site_options, get_fields('options'));
+        return $site_options;
+    }
+	function register_site_options() {
+        register_rest_route( 'wp/v2', 'site_options', array(
+            'methods' => 'GET',
+            'callback' => 'get_site_options',
+        ) );
+    }
